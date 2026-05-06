@@ -335,8 +335,8 @@ body::before{
             </div>
 
             <div class="form-group">
-                <label>URL de la imagen</label>
-                <input type="text" id="imgInput" placeholder="https://...">
+                <label>Cargar imagen del producto</label>
+                <input type="file" id="imgInput" accept="image/*">
             </div>
 
             <div class="preview" id="preview">
@@ -460,15 +460,22 @@ body::before{
 const imgInput = document.getElementById('imgInput');
 const preview = document.getElementById('preview');
 
-imgInput.addEventListener('input',()=>{
+imgInput.addEventListener('change',(e)=>{
 
-    const url = imgInput.value.trim();
+    const file = e.target.files[0];
 
-    if(url){
+    if(file){
 
-        preview.innerHTML = `
-            <img src="${url}">
-        `;
+        const reader = new FileReader();
+
+        reader.onload = (event)=>{
+
+            preview.innerHTML = `
+                <img src="${event.target.result}">
+            `;
+        };
+
+        reader.readAsDataURL(file);
 
     }else{
 
