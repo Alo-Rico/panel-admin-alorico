@@ -1,6 +1,3 @@
-# index.html — Panel Admin Alo Rico
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,7 +28,7 @@ body::before{
     position:fixed;
     inset:0;
     background:
-    linear-gradient(rgba(0,0,0,.80),rgba(0,0,0,.88)),
+    linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.88)),
     url('https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1600&auto=format&fit=crop');
     background-size:cover;
     background-position:center;
@@ -40,7 +37,7 @@ body::before{
 
 .container{
     width:100%;
-    max-width:1200px;
+    max-width:1300px;
     margin:auto;
     padding:30px 20px 80px;
 }
@@ -56,21 +53,15 @@ body::before{
     border-radius:50%;
     object-fit:cover;
     border:4px solid #facc15;
-    margin-bottom:20px;
     background:white;
+    margin-bottom:20px;
     box-shadow:0 0 30px rgba(250,204,21,.35);
 }
 
 .header h1{
     font-size:42px;
-    font-weight:700;
     color:#facc15;
     margin-bottom:10px;
-}
-
-.header p{
-    opacity:.85;
-    font-size:16px;
 }
 
 .grid{
@@ -81,7 +72,7 @@ body::before{
 
 .card{
     background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.08);
     border-radius:28px;
     padding:28px;
     backdrop-filter:blur(10px);
@@ -89,9 +80,8 @@ body::before{
 }
 
 .card h2{
-    margin-bottom:20px;
+    margin-bottom:22px;
     color:#facc15;
-    font-size:28px;
 }
 
 .form-group{
@@ -101,8 +91,8 @@ body::before{
 .form-group label{
     display:block;
     margin-bottom:8px;
-    font-weight:600;
     font-size:14px;
+    font-weight:600;
 }
 
 .form-group input,
@@ -114,8 +104,8 @@ body::before{
     border-radius:14px;
     background:#1f2937;
     color:white;
-    font-size:15px;
     outline:none;
+    font-size:15px;
 }
 
 .form-group textarea{
@@ -125,14 +115,14 @@ body::before{
 
 .preview{
     width:100%;
-    height:220px;
+    height:240px;
+    background:#1f2937;
     border-radius:20px;
     overflow:hidden;
-    margin-top:12px;
-    background:#1f2937;
     display:flex;
     align-items:center;
     justify-content:center;
+    margin-top:12px;
 }
 
 .preview img{
@@ -156,51 +146,26 @@ body::before{
 
 .btn:hover{
     transform:translateY(-2px);
-    filter:brightness(1.05);
-}
-
-.stats{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:18px;
-    margin-bottom:24px;
-}
-
-.stat{
-    background:rgba(255,255,255,.06);
-    padding:20px;
-    border-radius:20px;
-    text-align:center;
-}
-
-.stat h3{
-    font-size:34px;
-    color:#facc15;
-}
-
-.stat p{
-    opacity:.8;
 }
 
 .products{
     display:flex;
     flex-direction:column;
-    gap:16px;
-    max-height:700px;
+    gap:18px;
+    max-height:900px;
     overflow:auto;
-    padding-right:5px;
 }
 
 .product-card{
     background:rgba(255,255,255,.05);
-    border-radius:20px;
+    border-radius:22px;
     overflow:hidden;
-    border:1px solid rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.05);
 }
 
 .product-card img{
     width:100%;
-    height:180px;
+    height:220px;
     object-fit:cover;
 }
 
@@ -209,14 +174,20 @@ body::before{
 }
 
 .product-info h3{
-    margin-bottom:8px;
+    margin-bottom:10px;
 }
 
 .product-info p{
     opacity:.85;
-    font-size:14px;
+    margin-bottom:14px;
     line-height:1.5;
-    margin-bottom:12px;
+}
+
+.price{
+    font-size:24px;
+    font-weight:700;
+    color:#22c55e;
+    margin-bottom:14px;
 }
 
 .tags{
@@ -233,46 +204,26 @@ body::before{
     font-size:12px;
 }
 
-.price{
-    font-size:24px;
-    font-weight:700;
-    color:#22c55e;
-    margin-bottom:14px;
-}
-
 .actions{
     display:flex;
     gap:10px;
 }
 
-.edit,
 .delete{
     flex:1;
     border:none;
     padding:12px;
     border-radius:12px;
+    background:#dc2626;
+    color:white;
     font-weight:700;
     cursor:pointer;
 }
 
-.edit{
-    background:#2563eb;
-    color:white;
-}
-
-.delete{
-    background:#dc2626;
-    color:white;
-}
-
-@media(max-width:900px){
+@media(max-width:950px){
 
     .grid{
         grid-template-columns:1fr;
-    }
-
-    .header h1{
-        font-size:34px;
     }
 
 }
@@ -289,15 +240,11 @@ body::before{
 
         <h1>Panel Administrativo</h1>
 
-        <p>
-            Gestión de productos y precios de Alo Rico
-        </p>
-
     </div>
 
     <div class="grid">
 
-        <!-- FORMULARIO -->
+        <!-- FORM -->
 
         <div class="card">
 
@@ -305,47 +252,37 @@ body::before{
 
             <div class="form-group">
                 <label>Nombre del producto</label>
-                <input type="text" placeholder="Ej: Pizza Napolitana">
+                <input type="text" id="nombre">
             </div>
 
             <div class="form-group">
-                <label>Descripción / Ingredientes</label>
-                <textarea placeholder="Ej: Salsa, mozzarella, tomate, orégano..."></textarea>
+                <label>Ingredientes / Descripción</label>
+                <textarea id="descripcion"></textarea>
             </div>
 
             <div class="form-group">
                 <label>Precio</label>
-                <input type="number" placeholder="45000">
+                <input type="number" id="precio">
             </div>
 
             <div class="form-group">
                 <label>Categoría</label>
-                <select>
-                    <option>Pizzas</option>
-                    <option>Hamburguesas</option>
-                    <option>Lomitos</option>
-                    <option>Bebidas</option>
-                    <option>Promociones</option>
+                <select id="categoria">
+                    <option value="pizza">Pizza</option>
+                    <option value="hamburguesa">Hamburguesa</option>
+                    <option value="lomitos">Lomitos</option>
+                    <option value="bebidas">Bebidas</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label>Tamaño / Variante</label>
-                <input type="text" placeholder="Ej: Familiar, Doble, 1 Litro">
+                <input type="text" id="tamano">
             </div>
 
             <div class="form-group">
-                <label>Cargar imagen del producto</label>
-                <input type="file" id="imgInput" accept="image/*">
-            </div>
-
-            <div class="preview" id="preview">
-                Vista previa de imagen
-            </div>
-
-            <div class="form-group">
-                <label>Estado del producto</label>
-                <select>
+                <label>Estado</label>
+                <select id="estado">
                     <option>Disponible</option>
                     <option>Agotado</option>
                     <option>Oculto</option>
@@ -354,10 +291,21 @@ body::before{
 
             <div class="form-group">
                 <label>Tiempo estimado</label>
-                <input type="text" placeholder="Ej: 15-20 minutos">
+                <input type="text" id="tiempo">
             </div>
 
-            <button class="btn">
+            <div class="form-group">
+                <label>Imagen del producto</label>
+                <input type="file" id="imgInput" accept="image/*">
+            </div>
+
+            <div class="preview" id="preview">
+                Vista previa
+            </div>
+
+            <br>
+
+            <button class="btn" id="guardarBtn">
                 Guardar producto
             </button>
 
@@ -369,83 +317,7 @@ body::before{
 
             <h2>📦 Productos Cargados</h2>
 
-            <div class="stats">
-
-                <div class="stat">
-                    <h3>48</h3>
-                    <p>Productos</p>
-                </div>
-
-                <div class="stat">
-                    <h3>5</h3>
-                    <p>Categorías</p>
-                </div>
-
-            </div>
-
-            <div class="products">
-
-                <div class="product-card">
-
-                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop">
-
-                    <div class="product-info">
-
-                        <h3>Pizza Napolitana</h3>
-
-                        <p>
-                            Salsa, mozzarella, tomate y orégano.
-                        </p>
-
-                        <div class="tags">
-                            <div class="tag">Pizza</div>
-                            <div class="tag">Disponible</div>
-                            <div class="tag">Familiar</div>
-                        </div>
-
-                        <div class="price">
-                            Gs. 48.000
-                        </div>
-
-                        <div class="actions">
-                            <button class="edit">Editar</button>
-                            <button class="delete">Eliminar</button>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="product-card">
-
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop">
-
-                    <div class="product-info">
-
-                        <h3>Hamburguesa Doble</h3>
-
-                        <p>
-                            Doble carne, cheddar, panceta y salsa especial.
-                        </p>
-
-                        <div class="tags">
-                            <div class="tag">Hamburguesa</div>
-                            <div class="tag">Disponible</div>
-                            <div class="tag">Combo</div>
-                        </div>
-
-                        <div class="price">
-                            Gs. 39.000
-                        </div>
-
-                        <div class="actions">
-                            <button class="edit">Editar</button>
-                            <button class="delete">Eliminar</button>
-                        </div>
-
-                    </div>
-
-                </div>
+            <div class="products" id="productos">
 
             </div>
 
@@ -455,37 +327,216 @@ body::before{
 
 </div>
 
-<script>
+<script type="module">
 
-const imgInput = document.getElementById('imgInput');
-const preview = document.getElementById('preview');
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 
-imgInput.addEventListener('change',(e)=>{
+import {
+ getDatabase,
+ ref,
+ push,
+ onValue,
+ remove
+} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
 
-    const file = e.target.files[0];
+import {
+ getStorage,
+ ref as storageRef,
+ uploadBytes,
+ getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
 
-    if(file){
+/* FIREBASE */
 
-        const reader = new FileReader();
+const firebaseConfig = {
 
-        reader.onload = (event)=>{
+ apiKey: "AIzaSyADGYsqhbCFuKj2fXpontLpND_rtT7Nlno",
 
-            preview.innerHTML = `
-                <img src="${event.target.result}">
-            `;
-        };
+ authDomain: "alorico-59754.firebaseapp.com",
 
-        reader.readAsDataURL(file);
+ databaseURL: "https://alorico-59754-default-rtdb.firebaseio.com",
 
-    }else{
+ projectId: "alorico-59754",
 
-        preview.innerHTML = 'Vista previa de imagen';
+ storageBucket: "alorico-59754.appspot.com"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+const storage = getStorage(app);
+
+/* ELEMENTOS */
+
+const imgInput = document.getElementById("imgInput");
+
+const preview = document.getElementById("preview");
+
+const guardarBtn = document.getElementById("guardarBtn");
+
+const productosDiv = document.getElementById("productos");
+
+let imagenArchivo = null;
+
+/* PREVIEW */
+
+imgInput.addEventListener("change",(e)=>{
+
+ imagenArchivo = e.target.files[0];
+
+ if(imagenArchivo){
+
+  const reader = new FileReader();
+
+  reader.onload = (event)=>{
+
+   preview.innerHTML =
+   `<img src="${event.target.result}">`;
+  };
+
+  reader.readAsDataURL(imagenArchivo);
+ }
+});
+
+/* GUARDAR */
+
+guardarBtn.onclick = async ()=>{
+
+ const nombre =
+ document.getElementById("nombre").value;
+
+ const descripcion =
+ document.getElementById("descripcion").value;
+
+ const precio =
+ document.getElementById("precio").value;
+
+ const categoria =
+ document.getElementById("categoria").value;
+
+ const tamano =
+ document.getElementById("tamano").value;
+
+ const estado =
+ document.getElementById("estado").value;
+
+ const tiempo =
+ document.getElementById("tiempo").value;
+
+ if(!nombre || !precio || !imagenArchivo){
+
+  alert("Completa todos los campos");
+
+  return;
+ }
+
+ guardarBtn.innerText = "Subiendo...";
+
+ /* SUBIR IMAGEN */
+
+ const archivoRef =
+ storageRef(
+  storage,
+  "productos/" + Date.now() + "_" + imagenArchivo.name
+ );
+
+ await uploadBytes(
+  archivoRef,
+  imagenArchivo
+ );
+
+ const imagenURL =
+ await getDownloadURL(archivoRef);
+
+ /* GUARDAR PRODUCTO */
+
+ push(ref(db,"productos"),{
+
+  nombre,
+  descripcion,
+  precio,
+  categoria,
+  tamano,
+  estado,
+  tiempo,
+  imagen: imagenURL
+ });
+
+ guardarBtn.innerText = "Guardar producto";
+
+ alert("Producto guardado");
+
+ location.reload();
+};
+
+/* MOSTRAR PRODUCTOS */
+
+onValue(ref(db,"productos"),(snap)=>{
+
+ productosDiv.innerHTML = "";
+
+ const data = snap.val();
+
+ if(data){
+
+  Object.entries(data).reverse().forEach(([key,p])=>{
+
+   const div =
+   document.createElement("div");
+
+   div.className = "product-card";
+
+   div.innerHTML = `
+
+    <img src="${p.imagen}">
+
+    <div class="product-info">
+
+        <h3>${p.nombre}</h3>
+
+        <p>${p.descripcion}</p>
+
+        <div class="tags">
+
+            <div class="tag">${p.categoria}</div>
+
+            <div class="tag">${p.estado}</div>
+
+            <div class="tag">${p.tamano}</div>
+
+        </div>
+
+        <div class="price">
+            Gs. ${Number(p.precio).toLocaleString()}
+        </div>
+
+        <div class="actions">
+
+            <button class="delete">
+                Eliminar
+            </button>
+
+        </div>
+
+    </div>
+   `;
+
+   div.querySelector(".delete")
+   .onclick = ()=>{
+
+    if(confirm("Eliminar producto?")){
+
+     remove(ref(db,"productos/" + key));
     }
+   };
 
+   productosDiv.appendChild(div);
+  });
+ }
 });
 
 </script>
 
 </body>
 </html>
-```
